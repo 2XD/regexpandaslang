@@ -1,0 +1,7 @@
+azure-functions
+azure-storage-blob
+pandas
+langchain
+langchain-openai
+fuzzywuzzy
+python-Levenshtein
