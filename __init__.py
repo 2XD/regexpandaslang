@@ -145,6 +145,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         env = {}
         for var in required_env_vars:
             val = os.getenv(var)
+        #if no vals then return success along with error code
             if not val:
                 return func.HttpResponse(json.dumps({"error": f"Missing env var: {var}", "logs": logs}),
                                          status_code=200, mimetype="application/json")
@@ -169,6 +170,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
             api_version=env["AZURE_OPENAI_API_VERSION"],
             azure_endpoint=env["AZURE_OPENAI_ENDPOINT"],
             temperature=0
+            #using temp 0
         )
 
         # stage 1
